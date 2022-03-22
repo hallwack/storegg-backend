@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', function () {
         return view('admin.dashboard');
     });
-    Route::get('category', function () {
-        return view('admin.category');
-    });
+
+    Route::resource('category', CategoryController::class);
 });
 
 // Route::get('/admin/dashboard', function () {
