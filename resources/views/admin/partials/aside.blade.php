@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link active" href="../../demo1/dist/index.html">
+                    <a class="menu-link" href="../../demo1/dist/index.html">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-primary svg-icon-2">
                                 <!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2021-05-14-112058/theme/html/demo1/dist/../src/media/svg/icons/Shopping/Box1.svg--><svg

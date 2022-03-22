@@ -17,6 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('dashboard', function () {
+        return view('admin.dashboard');
+    });
+    Route::get('category', function () {
+        return view('admin.category');
+    });
 });
+
+// Route::get('/admin/dashboard', function () {
+//     return view('admin.dashboard');
+// });
