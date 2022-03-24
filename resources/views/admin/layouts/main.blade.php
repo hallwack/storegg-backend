@@ -43,6 +43,7 @@ License: For each use you must have a valid license purchased only from above li
     @include('admin.partials.scrolltop')
     <!--end::Main-->
     @include('admin.partials.scripts')
+    @stack('scripts')
 </body>
 <!--end::Body-->
 

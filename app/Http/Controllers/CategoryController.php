@@ -14,7 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category');
+        return view('admin.category.home');
         //
     }
 
@@ -25,6 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        return view('admin.category.create');
         //
     }
 
@@ -58,7 +59,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
