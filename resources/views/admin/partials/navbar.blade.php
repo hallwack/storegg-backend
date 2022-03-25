@@ -26,7 +26,7 @@
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <a href="../../demo1/dist/index.html" class="d-lg-none">
-                <img alt="Logo" src="../../assets/media/logos/logo-3.svg" class="h-30px" />
+                <img alt="Logo" src="{{ asset('assets/media/logos/logo-3.svg')}}" class="h-30px" />
             </a>
         </div>
         <!--end::Mobile logo-->
@@ -70,7 +70,7 @@
                                 <div class="menu-content d-flex align-items-center px-3">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-50px me-5">
-                                        <img alt="Logo" src="../../assets/media/avatars/150-26.jpg" />
+                                        <img alt="Logo" src="{{ asset('../../assets/media/avatars/150-26.jpg') }}" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Username-->
@@ -98,7 +98,7 @@
                                         <span
                                             class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
                                             <img class="w-15px h-15px rounded-1 ms-2"
-                                                src="../../assets/media/flags/united-states.svg"
+                                                src="{{ asset('assets/media/flags/united-states.svg') }}"
                                                 alt="metronic" /></span></span>
                                 </a>
                                 <!--begin::Menu sub-->
@@ -108,7 +108,8 @@
                                         <a href="../../demo1/dist/account/settings.html"
                                             class="menu-link d-flex px-5 active">
                                             <span class="symbol symbol-20px me-4">
-                                                <img class="rounded-1" src="../../assets/media/flags/united-states.svg"
+                                                <img class="rounded-1"
+                                                    src="{{ asset('assets/media/flags/united-states.svg') }}"
                                                     alt="metronic" />
                                             </span>English</a>
                                     </div>
@@ -117,7 +118,8 @@
                                     <div class="menu-item px-3">
                                         <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
                                             <span class="symbol symbol-20px me-4">
-                                                <img class="rounded-1" src="../../assets/media/flags/indonesia.svg"
+                                                <img class="rounded-1"
+                                                    src="{{ asset('assets/media/flags/indonesia.svg') }}"
                                                     alt="metronic" />
                                             </span>Bahasa Indonesia</a>
                                     </div>
