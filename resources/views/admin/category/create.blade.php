@@ -52,23 +52,30 @@
         <div class="row gy-5 g-xl-8">
             <div class="col-xxl-12">
                 <div class="card shadow-sm">
-                    <div class="card-header">
-                        <h3 class="card-title fs-2 fw-bolder">Create Category</h3>
-                    </div>
-                    <div class="card-body row gap-10">
-                        <div>
-                            <label for="name" class="required form-label">Nama Kategori</label>
-                            <input id="name" type="email" class="form-control form-control-solid"
-                                placeholder="Example input" required />
+                    <form method="POST" action="{{ route('category.store') }}">
+                        @csrf
+                        <div class="card-header">
+                            <h3 class="card-title fs-2 fw-bolder">Create Category</h3>
                         </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="card-toolbar">
-                            <button type="button" class="btn btn-sm btn-primary">
-                                Tambah
-                            </button>
+                        <div class="card-body row gap-10">
+                            <div>
+                                <label for="category_name" class="required form-label">Nama Kategori</label>
+                                <input id="category_name" name="category_name" type="text"
+                                    class="form-control form-control-solid" placeholder="Masukkan nama kategori"
+                                    required />
+                            </div>
                         </div>
-                    </div>
+                        <div class="card-footer">
+                            <div class="card-toolbar">
+                                <button type="submit" class="btn btn-sm btn-primary">
+                                    Tambah
+                                </button>
+                                <a href="{{ url()->previous() }}" class="btn btn-sm btn-secondary ms-3">
+                                    Kembali
+                                </a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

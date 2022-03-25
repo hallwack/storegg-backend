@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,8 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.home');
-        //
+        $category = Category::all();
+
+        return view('admin.category.home', ['items' => $category]);
     }
 
     /**
@@ -26,7 +28,6 @@ class CategoryController extends Controller
     public function create()
     {
         return view('admin.category.create');
-        //
     }
 
     /**
@@ -37,7 +38,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $item = $request->validate([
+            'category_name' => 'required'
+        ]);
+
+        $date = new Carbon;
+        $item['category_name'] = $request->category_name;
+        $item['created_at'] = $date->now();
+
+        Category::create($item);
+
+        return redirect()->route('category.index');
     }
 
     /**
@@ -59,7 +70,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.category.create');
+        return view('admin.category.edit', ['item' => $category]);
     }
 
     /**
@@ -71,7 +82,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $item = $request->validate([
+            'category_name' => 'required'
+        ]);
+
+        $date = new Carbon;
+        $item['category_name'] = $request->category_name;
+
+        // dd($item);
+        $category->update($item);
+
+        return redirect()->route('category.index');
     }
 
     /**
@@ -82,6 +103,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->destroy($category->id);
+        return redirect()->route('category.index');
     }
 }

@@ -70,30 +70,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($items as $item)
                                 <tr>
-                                    <td>1</td>
-                                    <td>System Architect</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->category_name }}</td>
                                     <td>
-                                        <a href="#" class="badge badge-warning">Edit</a>
-                                        <a href="#" class="badge badge-danger">Delete</a>
+                                        <a href="{{ route('category.edit', $item->id) }}"
+                                            class="badge badge-warning">Edit</a>
+                                        <a data-bs-toggle="modal" data-bs-target="#kt_modal_1"
+                                            data-route="{{ route('category.destroy', $item->id) }}"
+                                            data-name="{{ $item->category_name }}" id="btn-delete"
+                                            class="badge badge-danger pe-auto">Delete</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>System Architect</td>
-                                    <td>
-                                        <a href="#" class="badge badge-warning">Edit</a>
-                                        <a href="#" class="badge badge-danger">Delete</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>System Architect</td>
-                                    <td>
-                                        <a href="#" class="badge badge-warning">Edit</a>
-                                        <a href="#" class="badge badge-danger">Delete</a>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -102,11 +92,57 @@
         </div>
     </div>
     <!--end::Container-->
+
+    <div class="modal fade" tabindex="-1" id="kt_modal_1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Item</h5>
+
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <span class="svg-icon svg-icon-2x"></span>
+                    </div>
+                    <!--end::Close-->
+                </div>
+
+                <div class="modal-body">
+                    <p id="confirm-delete"></p>
+                </div>
+
+                <div class="modal-footer">
+                    <form method="POST" id="form">
+                        @method('DELETE')
+                        @csrf
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@push('style')
+<style>
+    #btn-delete {
+        cursor: pointer;
+    }
+
+</style>
+@endpush
 
 @push('scripts')
 <script>
     $("#kt_datatable_example_1").DataTable();
+
+    $(document).on('click', "#btn-delete", function () {
+        var route = $(this).data('route');
+        var name = $(this).data('name');
+        $('#confirm-delete').html(`Are you sure to delete ${name} item?`);
+        $('#form').attr('action', route);
+    })
 
 </script>
 @endpush
