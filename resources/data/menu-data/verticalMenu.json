@@ -1,0 +1,39 @@
+{
+    "menu": [
+        {
+            "url": "admin/dashboard",
+            "name": "dashboard",
+            "icon": "home",
+            "slug": "admin.dashboard"
+        },
+        {
+            "navheader": "user-permission",
+            "slug": ""
+        },
+        {
+            "name": "system-access",
+            "icon": "shield",
+            "slug": "",
+            "submenu": [
+                {
+                    "url": "admin/system-access/group",
+                    "name": "group",
+                    "icon": "circle",
+                    "slug": "admin-system-access-group"
+                },
+                {
+                    "url": "admin/system-access/role",
+                    "name": "role",
+                    "icon": "circle",
+                    "slug": "admin-system-access-role"
+                },
+                {
+                    "url": "admin/system-access/privilege",
+                    "name": "privilege",
+                    "icon": "circle",
+                    "slug": "admin-system-access-privilege"
+                }
+            ]
+        }
+    ]
+}
